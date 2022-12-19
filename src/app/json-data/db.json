@@ -1,0 +1,51 @@
+{
+  "products": [
+    {
+      "name": "Test Product 1",
+      "description": "Lorem ipsum some content.....",
+      "price": "3725",
+      "quantity": "123",
+      "id": 1
+    },
+    {
+      "name": "User Product 2",
+      "description": "Lorem ipsum some content.....",
+      "price": "5623",
+      "id": 2
+    },
+    {
+      "name": "Laptop",
+      "description": "Lorem ipsome data, some content...",
+      "price": "72352",
+      "id": 3
+    },
+    {
+      "name": "i-phone",
+      "description": "Lorem ipsome data, some content...",
+      "price": "78999",
+      "id": 4
+    },
+    {
+      "name": "Headphones",
+      "description": "Lorem ipsome data, some content...",
+      "price": "3453",
+      "id": 5
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "price": "test",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

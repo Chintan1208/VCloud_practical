@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-end mt-3">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary pull-right"
+          (click)="btnClick()"
+        >
+          Create Product
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control search-field"
+          placeholder="Search Data Here"
+          [(ngModel)]="searchText"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="cursor-pointer" scope="col" (click)="sort('id')">
+              ID<img src="../../../../assets/icons/arrow-down-up.svg" />
+            </th>
+            <th class="cursor-pointer" scope="col" (click)="sort('name')">
+              Name<img src="../../../../assets/icons/arrow-down-up.svg" />
+            </th>
+            <th
+              class="cursor-pointer"
+              scope="col"
+              (click)="sort('description')"
+            >
+              Description<img
+                src="../../../../assets/icons/arrow-down-up.svg"
+              />
+            </th>
+            <th class="cursor-pointer" scope="col" (click)="sort('price')">
+              Price<img src="../../../../assets/icons/arrow-down-up.svg" />
+            </th>
+            <th scope="col">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products | searchpipe : searchText">
+            <td>{{ product?.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteProduct(product)">
+                Delete
+              </button>
+              <button
+                class="btn btn-secondary"
+                (click)="editProduct(product)"
+                style="margin-left: 20px"
+              >
+                Edit
+              </button>
+              <button
+                class="btn btn-success"
+                (click)="gotoProductDetails(product)"
+                style="margin-left: 20px"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure you want to logout ?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button
+          (click)="logoutuser()"
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
